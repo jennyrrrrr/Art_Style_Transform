@@ -133,7 +133,7 @@ photo -> painting
 
 painting -> photo
 <p align="middle">
-    <img src="images/my_res.png" alt="Screenshot of the app" height="650" />
+    <img src="images/my_res.png" alt="Screenshot of the app" height="550" />
 </p>
 photo -> painting
 
