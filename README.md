@@ -2,44 +2,39 @@
 
 - in a paragraph or two, summarize the project
 
-This Project is an learn, experimentation, and reproduce of the image to image translation published in the paper
-using the Cycle GAN from the paper <em>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial 
-Networks</em> . 
+The greatest painters left amazing art works to us, and we are still admiring their art and style until today. It would 
+amazing if we can replicate the same style from them. And you can easily turn any photography you like into the same 
+Monet or Van Gogh yourself. 
 
-In this project....
-
-Train a Clycle GAN model, input photographies, output Monet Style Paintings. 
-
-
-The project is to produce perform image to image transformatioin, intended in creating Monet styled paintings by training generative adversarial networks. 
-
-The greatest painters left amazing art works to us, and we are still admiring their art and style until today. 
-
-It would amazing if we can replicate the same style from them. 
-
-And you can easily turn any photographies you like into the same Monet or Van Gogh yourself. 
+This Project is a learning and experimentation of the Cycle GAN from the paper <em>Unpaired Image-to-Image Translation 
+using Cycle-Consistent Adversarial Networks</em> . In this project I trained a Clycle GAN model by following the methods 
+described in the original paper. The data I'm using to tain includes photot of real life views, Monet's paintings, Van 
+Gogh's paintings(sketches). The example training images were very close to real life looking paintings, so i also trained a
+network using sketches from Van Gogh's paintings. 
 
 ![input](images/paper_res.png)
+
+<figcaption align = "center"> Cycle GAN result image from <em>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial 
+Networks</em> </figcaption>
 
 
 ## Problem statement 
 
-- what are you trying to solve/do
+In training image to a different style, I would be much easier to used paired photo and paintings for training, 
 
+But in most cases, we don't have such ability to paired data. 
 
-In training image to a different style, usually needs paired data for training, 
+The problem statement is how can we generate image with certain styles without having a good amout of paired data. 
 
-but in some cases, we dont have paired data. 
-
-The problem statement is how can we generatae image without having paired data. 
-for example, if we want to transforem a real life photograohy to a van goph styled painting, we can get eal life photograohy to a van goph styled painting, but these images can not be paired.  
+For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
+a real life photography matching Van Gogh styled painting.
 
 ![model](images/problem.png)
 
-## Related work 
+<figcaption align = "center"> Example paired/unpaired image from <em>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial 
+Networks</em> </figcaption>
 
-- what papers/ideas inspired you 
-- what datasets did you use, etc
+## Related work 
 
 ### Paper
 
@@ -60,22 +55,36 @@ https://www.kaggle.com/c/gan-getting-started
 
 https://www.kaggle.com/ipythonx/van-gogh-paintings
 
-![model](images/photo.png)
-![model](images/sketch.png)
+![photo](images/photo.png)
+![monet](images/monet.png)
+![sketch](images/sketch.png)
 
+<p align="middle">
+<img src="./images/photo.png" alt="Screenshot of the app" height="300" />
+<img src="./images/monet.png" alt="Screenshot of the app" height="300" />
+<img src="./images/sketch.png" alt="Screenshot of the app" height="300" />
+</p>
+
+### Package 
+Unpaired image-to-image translation
+
+https://github.com/tmabraham/UPIT
+
+### Kaggle
+I’m Something of a Painter Myself
+
+https://www.kaggle.com/c/gan-getting-started
+
+https://www.kaggle.com/dimitreoliveira/improving-cyclegan-monet-paintings
 
 ### Methodology
 
-in the paper for cycle GAN, the authors are able to transform horse to zebra, and transform zebra back to horse, or transform the real life photographies to a certain art style.
-
-in this case, we are transofmring data from domain x to domain y. 
-and we need a distriminator to jude if the generated image belongs to domain y. 
+In this case, we are transofmring data from domain x (photos) to domain y(stylished paintings). 
+first, we need a distriminator to jude if the generated image belongs to domain y. 
 
 using only the discriminator may cause problems like generating images that look like it's a image in domain y, but the generated image may turned out to have nothing in relation with the input image. 
 
-so to avid problem like this 
-
-we need another generate to transform the image from domain y back to image in domain x. 
+so to avid problem like this, another generater is needed to transform the image from domain y back to image in domain x. 
 
 and we need to make the regenerated input image to be as close as to the original input image. 
 
@@ -85,11 +94,14 @@ To try on a more dramatic and different style from the , I also tried the skecht
 
 there are two generator and two discriminator.
 
-![model](images/model.png)
+In the paper <em>Unpaired Image-to-Image Translation 
+using Cycle-Consistent Adversarial Networks</em> the authors succeeded in training the cycled GAN to generate various 
+art styled paintings.
 
 ![model](images/model3.png)
 
 ### Discriminator
+
 
 ![model](images/discriminator.png)
 
@@ -97,16 +109,10 @@ the disciminator is made up of
 
 ### Generator
 
+Here is the ResNet-block-based architecture of the generator. 
+With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convolutional layers of decoder. 
+
 ![model](images/generator.png)
-
-the generator is ...
-
-
-## Results 
-
-- How well did you do
-
-The model is successful in making monet styled painting from real life photographies.
 
 ## Experiments/evaluation 
 
@@ -119,13 +125,26 @@ The model is successful in making monet styled painting from real life photograp
 ### Notebook
 
 ### Results
-input image:
-![input](input.jpg)
 
-output image:
-![output](output.jpg)
+The model I implemented and trained is successful in making monet styled painting from real life photography. So 
+
+And as a result, it takes way to long and GPU consuming a train the GAN model
+
+After training 120 epoches with the Monet paintings data set and 13 epoches with Van Gogh's sheckes, my chrome/computer
+finally crashed. 
+
+Monet:
+
+Van Gogh sketches:
+
+painting -> photo
 
 ![model](images/my_res.png)
+
+painting -> photo
+
+I would say it is looking pretty successful in generating the paintings and photos.
+
 
 ## Video
 
@@ -133,6 +152,10 @@ output image:
 
 
 
-
-
-
+@Misc{UPIT,
+    author =       {Tanishq Mathew Abraham},
+    title =        {UPIT - A fastai/PyTorch package for unpaired image-to-image translation.},
+    howpublished = {Github},
+    year =         {2021},
+    url =          {https://github.com/tmabraham/UPIT}
+}
