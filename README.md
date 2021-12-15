@@ -1,14 +1,14 @@
 ## Abstract 
 
-The greatest painters left amazing art works to us, and we are still admiring their art and style until today. It would 
-amazing if we can replicate the same style from them. And you can easily turn any photography you like into the same 
-Monet or Van Gogh yourself. 
+The greatest painters have left priceless artworks to us, and we are still admiring their art and style until today. It would be
+amazing if we can replicate the same style from them. And in this way, anyone may be able to turn any photography you like into the same 
+Monet or Van Gogh's style. 
 
-This Project is a learning and experimentation of the Cycle GAN from the paper <em>Unpaired Image-to-Image Translation 
-using Cycle-Consistent Adversarial Networks</em> . In this project I trained a Clycle GAN model by following the methods 
-described in the original paper. The data I'm using to tain includes photot of real life views, Monet's paintings, Van 
-Gogh's paintings(sketches). The example training images were very close to real life looking paintings, so i also trained a
-network using sketches from Van Gogh's paintings. 
+This Project is a learning and experimentation of the Cycle GAN from the paper <em> Unpaired image-to-image Translation 
+using Cycle-Consistent Adversarial Networks </em>  . In this project, I trained a Cycle GAN model by following the methods 
+described in the original paper. The data I'm using to train includes photos of real-life views, Monet's paintings, Van 
+Gogh's paintings(sketches). And since I noticed the example training images were very close to real-life-looking paintings, so I also trained a
+network using sketches from Van Gogh's paintings. As a result, both trainings are very successful. 
 
 ![input](images/paper_res.png)
 
@@ -18,9 +18,9 @@ Networks</em> </figcaption>
 
 ## Problem statement 
 
-In training image to a different style, I would be much easier to used paired photo and paintings for training. 
-But in most cases, we don't have such ability to paired data. The problem statement is how can we generate image with 
-certain styles without having a good amout of paired data. For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
+In training image to a different style, it would be much easier to used paired photos and paintings for training. 
+But in most cases, we don't have such ability to get well paired data. The problem statement is how can we generate image with 
+certain styles without having a good amount of paired data. For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
 a real life photography matching Van Gogh styled painting.
 
 <p align="middle">
@@ -70,20 +70,21 @@ https://www.kaggle.com/dimitreoliveira/improving-cyclegan-monet-paintings
 
 ## Methodology
 
-To generate images in certain style, we are transforming data from domain X (photos) to domain Y (styled paintings). 
+To generate images in a certain style, we are transforming data from domain X (photos) to domain Y (styled paintings). 
 
-First, we need a distriminator to jude if the generated image belongs to domain Y. 
+First, we need a discriminator to judge if the generated image belongs to domain Y. 
 
-But using only the discriminator may cause problems like generating images that look like it's a image in domain Y, 
-but the generated image may turned out to have nothing in relation with the input image. 
+But using only the discriminator may cause problems like generating images that look like it's an image in domain Y, 
+but the generated image may turn out to have nothing in relation to the input image. 
 
-So to avid problem like this, another generater is needed to transform the image from domain y back to image in 
-domain X, we need to make the regenerated input image to be as close as to the original input image. 
+So to avoid problems like this, another generator is needed to transform the image from domain Y back to image in 
+domain X, we need to make the regenerated input image to be as close as to the original input image. aka minimizing the loss. 
 
-So we also need another generator and discriminator to use the generated painting to regenerate image back in domain X. 
+We also need another generator and discriminator to use the painting to regenerate the image back in domain X and minimize the 
+loss of the regenerated painting to the original painting. 
 
-And as I noticed that the dataset prsented in the original paper are using data/images that are close to the realistic 
-style. Thus I also tried training on a more dramatic and different style of data, I also tried the penciel skeches from Van Gogh's 
+And as I noticed that the dataset presented in the original paper are using data/images that are close to the realistic 
+style. Thus I also tried training on a more dramatic and different style of data, I also tried the pencil sketches from Van Gogh's 
 paintings dataset.
 
 <p align="middle">
@@ -94,7 +95,7 @@ paintings dataset.
 ### Discriminator
 
 <p align="middle">
-    <img src="images/discriminator.png" alt="Screenshot of the app" height="400" />
+    <img src="images/discriminator.png" alt="Screenshot of the app" height="300" />
 </p>
 
 After the last layer, a convolution is applied to map to
@@ -106,12 +107,18 @@ Here is the ResNet-block-based architecture of the generator.
 With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convolutional layers of decoder. 
 
 <p align="middle">
-    <img src="images/generator.png" alt="Screenshot of the app" height="400" />
+    <img src="images/generator.png" alt="Screenshot of the app" height="300" />
 </p>
 
 ## Experiments/evaluation 
 
 - how are you evaluating your results
+
+As mentioned before, we need to minimize the loss from the input image to the regenerated， generating painting image, 
+as well as the reverse, we need to minimize the loss from the generated painting from the regenerated painting generated photo. 
+
+For evaluating, looking at the example generated images, they are looking very close to the Monet and Van Gogh's painting
+Style.
 
 ## Examples
 
@@ -121,23 +128,24 @@ Some example image and paintings generated with the trained model.
 
 photo -> painting
 <p align="middle">
-    <img src="images/monet_res.png" alt="Screenshot of the app" height="400" />
+    <img src="images/monet_res.png" alt="Screenshot of the app" height="300" />
 </p>
 
 ### Van Gogh sketches:
 
 painting -> photo
 <p align="middle">
-    <img src="images/my_res.png" alt="Screenshot of the app" height="400" />
+    <img src="images/my_res.png" alt="Screenshot of the app" height="700" />
 </p>
 painting -> photo
 
+
 ## Results
 
-The model I implemented and trained is successful in making Monet styled painting and Van Gogh styled sketches from 
-real life photography.
+The model I implemented and trained is successful in making Monet styled paintings and Van Gogh styled sketches from 
+real-life photography.
 
-As a result, it takes way to long and GPU consuming a train the GAN model , and after training 120 epoches with the Monet paintings data set and 13 epoches with Van Gogh's sheckes, my chrome/computer
+As a result, it takes way too long and GPU consuming a train the GAN model, and after training 120 epochs with the Monet paintings data set and 13 epochs with Van Gogh's sketches, my chrome/computer
 finally crashed.
 
 I would say it is pretty successful in generating the paintings and photos to the styles I want.
@@ -145,9 +153,11 @@ I would say it is pretty successful in generating the paintings and photos to th
 
 ## Video
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![youtube](images/youtube.png)](https://www.youtube.com/watch?v=I-vDBwc4qco)
 
 
+
+### References
 
 @Misc{UPIT,
     author =       {Tanishq Mathew Abraham},
