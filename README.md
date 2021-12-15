@@ -1,7 +1,5 @@
 ## Abstract 
 
-- in a paragraph or two, summarize the project
-
 The greatest painters left amazing art works to us, and we are still admiring their art and style until today. It would 
 amazing if we can replicate the same style from them. And you can easily turn any photography you like into the same 
 Monet or Van Gogh yourself. 
@@ -20,13 +18,9 @@ Networks</em> </figcaption>
 
 ## Problem statement 
 
-In training image to a different style, I would be much easier to used paired photo and paintings for training, 
-
-But in most cases, we don't have such ability to paired data. 
-
-The problem statement is how can we generate image with certain styles without having a good amout of paired data. 
-
-For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
+In training image to a different style, I would be much easier to used paired photo and paintings for training. 
+But in most cases, we don't have such ability to paired data. The problem statement is how can we generate image with 
+certain styles without having a good amout of paired data. For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
 a real life photography matching Van Gogh styled painting.
 
 <p align="middle">
@@ -74,31 +68,28 @@ https://www.kaggle.com/c/gan-getting-started
 
 https://www.kaggle.com/dimitreoliveira/improving-cyclegan-monet-paintings
 
-### Methodology
+## Methodology
 
-In this case, we are transofmring data from domain x (photos) to domain y(stylished paintings). 
-first, we need a distriminator to jude if the generated image belongs to domain y. 
+To generate images in certain style, we are transforming data from domain X (photos) to domain Y (styled paintings). 
 
-using only the discriminator may cause problems like generating images that look like it's a image in domain y, but the generated image may turned out to have nothing in relation with the input image. 
+First, we need a distriminator to jude if the generated image belongs to domain Y. 
 
-so to avid problem like this, another generater is needed to transform the image from domain y back to image in domain x. 
+But using only the discriminator may cause problems like generating images that look like it's a image in domain Y, 
+but the generated image may turned out to have nothing in relation with the input image. 
 
-and we need to make the regenerated input image to be as close as to the original input image. 
+So to avid problem like this, another generater is needed to transform the image from domain y back to image in 
+domain X, we need to make the regenerated input image to be as close as to the original input image. 
 
-so we need another cycle gan that do the reverse work. 
+So we also need another generator and discriminator to use the generated painting to regenerate image back in domain X. 
 
-To try on a more dramatic and different style from the , I also tried the skechtings from van gogh's paintings. 
-
-there are two generator and two discriminator.
-
-In the paper <em>Unpaired Image-to-Image Translation 
-using Cycle-Consistent Adversarial Networks</em> the authors succeeded in training the cycled GAN to generate various 
-art styled paintings.
+And as I noticed that the dataset prsented in the original paper are using data/images that are close to the realistic 
+style. Thus I also tried training on a more dramatic and different style of data, I also tried the penciel skeches from Van Gogh's 
+paintings dataset.
 
 <p align="middle">
     <img src="images/model3.png" alt="Screenshot of the app" height="400" />
 </p>
-
+<figcaption align = "center"> Graphic representation of the Model. </figcaption>
 
 ### Discriminator
 
@@ -106,7 +97,8 @@ art styled paintings.
     <img src="images/discriminator.png" alt="Screenshot of the app" height="400" />
 </p>
 
-the disciminator is made up of 
+After the last layer, a convolution is applied to map to
+a 1-dimensional output, followed by a Sigmoid function.
 
 ### Generator
 
@@ -123,30 +115,32 @@ With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convol
 
 ## Examples
 
-- images/text/live demo, anything to show off your work
+Some example image and paintings generated with the trained model. 
 
-### Results
+### Monet:
 
-The model I implemented and trained is successful in making monet styled painting from real life photography. So 
+photo -> painting
+<p align="middle">
+    <img src="images/monet_res.png" alt="Screenshot of the app" height="400" />
+</p>
 
-And as a result, it takes way to long and GPU consuming a train the GAN model
-
-After training 120 epoches with the Monet paintings data set and 13 epoches with Van Gogh's sheckes, my chrome/computer
-finally crashed. 
-
-#### Monet:
-
-#### Van Gogh sketches:
+### Van Gogh sketches:
 
 painting -> photo
-
 <p align="middle">
     <img src="images/my_res.png" alt="Screenshot of the app" height="400" />
 </p>
-
 painting -> photo
 
-I would say it is looking pretty successful in generating the paintings and photos.
+## Results
+
+The model I implemented and trained is successful in making Monet styled painting and Van Gogh styled sketches from 
+real life photography.
+
+As a result, it takes way to long and GPU consuming a train the GAN model , and after training 120 epoches with the Monet paintings data set and 13 epoches with Van Gogh's sheckes, my chrome/computer
+finally crashed.
+
+I would say it is pretty successful in generating the paintings and photos to the styles I want.
 
 
 ## Video
