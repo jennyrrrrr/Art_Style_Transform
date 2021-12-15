@@ -6,6 +6,8 @@ It would amazing if we can replicate the same style from them.
 
 And you can easily turn any photographies you like into the same Monet or Van Gogh yourself. 
 
+![input](/image/Screen Shot 2021-12-14 at 7.33.25 PM.png)
+
 
 ### Goals:
 Train a Clycle GAN model, input photographies, output Monet Style Paintings. 
