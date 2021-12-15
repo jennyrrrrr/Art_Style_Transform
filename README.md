@@ -29,8 +29,9 @@ The problem statement is how can we generate image with certain styles without h
 For example, if we want to transform a real life photography to a Van Gogh styled painting, we will not be able to get 
 a real life photography matching Van Gogh styled painting.
 
-![model](images/problem.png)
-
+<p align="middle">
+    <img src="images/problem.png" alt="Screenshot of the app" height="600" />
+</p>
 <figcaption align = "center"> Example paired/unpaired image from <em>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial 
 Networks</em> </figcaption>
 
@@ -55,14 +56,10 @@ https://www.kaggle.com/c/gan-getting-started
 
 https://www.kaggle.com/ipythonx/van-gogh-paintings
 
-![photo](images/photo.png)
-![monet](images/monet.png)
-![sketch](images/sketch.png)
-
 <p align="middle">
-<img src="./images/photo.png" alt="Screenshot of the app" height="300" />
-<img src="./images/monet.png" alt="Screenshot of the app" height="300" />
-<img src="./images/sketch.png" alt="Screenshot of the app" height="300" />
+<img src="./images/photo.png" alt="Screenshot of the app" height="600" />
+<img src="./images/monet.png" alt="Screenshot of the app" height="600" />
+<img src="./images/sketch.png" alt="Screenshot of the app" height="600" />
 </p>
 
 ### Package 
@@ -98,12 +95,16 @@ In the paper <em>Unpaired Image-to-Image Translation
 using Cycle-Consistent Adversarial Networks</em> the authors succeeded in training the cycled GAN to generate various 
 art styled paintings.
 
-![model](images/model3.png)
+<p align="middle">
+    <img src="images/model3.png" alt="Screenshot of the app" height="600" />
+</p>
+
 
 ### Discriminator
 
-
-![model](images/discriminator.png)
+<p align="middle">
+    <img src="images/discriminator.png" alt="Screenshot of the app" height="600" />
+</p>
 
 the disciminator is made up of 
 
@@ -112,7 +113,9 @@ the disciminator is made up of
 Here is the ResNet-block-based architecture of the generator. 
 With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convolutional layers of decoder. 
 
-![model](images/generator.png)
+<p align="middle">
+    <img src="images/generator.png" alt="Screenshot of the app" height="600" />
+</p>
 
 ## Experiments/evaluation 
 
@@ -121,8 +124,6 @@ With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convol
 ## Examples
 
 - images/text/live demo, anything to show off your work
-
-### Notebook
 
 ### Results
 
@@ -133,13 +134,15 @@ And as a result, it takes way to long and GPU consuming a train the GAN model
 After training 120 epoches with the Monet paintings data set and 13 epoches with Van Gogh's sheckes, my chrome/computer
 finally crashed. 
 
-Monet:
+#### Monet:
 
-Van Gogh sketches:
+#### Van Gogh sketches:
 
 painting -> photo
 
-![model](images/my_res.png)
+<p align="middle">
+    <img src="images/my_res.png" alt="Screenshot of the app" height="600" />
+</p>
 
 painting -> photo
 
