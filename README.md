@@ -30,7 +30,7 @@ For example, if we want to transform a real life photography to a Van Gogh style
 a real life photography matching Van Gogh styled painting.
 
 <p align="middle">
-    <img src="images/problem.png" alt="Screenshot of the app" height="600" />
+    <img src="images/problem.png" alt="Screenshot of the app" height="400" />
 </p>
 <figcaption align = "center"> Example paired/unpaired image from <em>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial 
 Networks</em> </figcaption>
@@ -57,9 +57,9 @@ https://www.kaggle.com/c/gan-getting-started
 https://www.kaggle.com/ipythonx/van-gogh-paintings
 
 <p align="middle">
-<img src="./images/photo.png" alt="Screenshot of the app" height="600" />
-<img src="./images/monet.png" alt="Screenshot of the app" height="600" />
-<img src="./images/sketch.png" alt="Screenshot of the app" height="600" />
+<img src="./images/photo.png" alt="Screenshot of the app" height="400" />
+<img src="./images/monet.png" alt="Screenshot of the app" height="400" />
+<img src="./images/sketch.png" alt="Screenshot of the app" height="400" />
 </p>
 
 ### Package 
@@ -96,14 +96,14 @@ using Cycle-Consistent Adversarial Networks</em> the authors succeeded in traini
 art styled paintings.
 
 <p align="middle">
-    <img src="images/model3.png" alt="Screenshot of the app" height="600" />
+    <img src="images/model3.png" alt="Screenshot of the app" height="400" />
 </p>
 
 
 ### Discriminator
 
 <p align="middle">
-    <img src="images/discriminator.png" alt="Screenshot of the app" height="600" />
+    <img src="images/discriminator.png" alt="Screenshot of the app" height="400" />
 </p>
 
 the disciminator is made up of 
@@ -114,7 +114,7 @@ Here is the ResNet-block-based architecture of the generator.
 With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convolutional layers of decoder. 
 
 <p align="middle">
-    <img src="images/generator.png" alt="Screenshot of the app" height="600" />
+    <img src="images/generator.png" alt="Screenshot of the app" height="400" />
 </p>
 
 ## Experiments/evaluation 
@@ -141,7 +141,7 @@ finally crashed.
 painting -> photo
 
 <p align="middle">
-    <img src="images/my_res.png" alt="Screenshot of the app" height="600" />
+    <img src="images/my_res.png" alt="Screenshot of the app" height="400" />
 </p>
 
 painting -> photo
