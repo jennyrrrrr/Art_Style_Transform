@@ -112,8 +112,6 @@ With 3 convolutional layers of encoder, 6 layers of residual block, and 3 convol
 
 ## Experiments/evaluation 
 
-- how are you evaluating your results
-
 As mentioned before, we need to minimize the loss from the input image to the regenerated， generating painting image, 
 as well as the reverse, we need to minimize the loss from the generated painting from the regenerated painting generated photo. 
 
@@ -122,22 +120,22 @@ Style.
 
 ## Examples
 
-Some example image and paintings generated with the trained model. 
+Some example images and paintings generated with the trained model. 
 
 ### Monet:
 
 photo -> painting
 <p align="middle">
-    <img src="images/monet_res.png" alt="Screenshot of the app" height="300" />
+    <img src="images/monet_res.png" alt="Screenshot of the app" height="250" />
 </p>
 
 ### Van Gogh sketches:
 
 painting -> photo
 <p align="middle">
-    <img src="images/my_res.png" alt="Screenshot of the app" height="700" />
+    <img src="images/my_res.png" alt="Screenshot of the app" height="650" />
 </p>
-painting -> photo
+photo -> painting
 
 
 ## Results
