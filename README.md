@@ -1,5 +1,3 @@
-### GAN!
-
 ### Proposal:
 
 The greatest painters left amazing art works to us, and we are still admiring their art and style until today. 
